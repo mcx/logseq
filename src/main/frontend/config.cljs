@@ -4,9 +4,11 @@
             [frontend.state :as state]
             [frontend.util :as util]
             [shadow.resource :as rc]
+            [electron.ipc :as ipc]
             [logseq.graph-parser.util :as gp-util]
             [logseq.graph-parser.config :as gp-config]
-            [frontend.mobile.util :as mobile-util]))
+            [frontend.mobile.util :as mobile-util]
+            ["path" :as path]))
 
 (goog-define DEV-RELEASE false)
 (defonce dev-release? DEV-RELEASE)
@@ -354,6 +356,14 @@
   ([repo]
    (when repo
      (get-file-path repo (str app-name "/" config-file)))))
+
+(defn get-global-config-dir
+  []
+  (path/join (state/get-root-dir) "config"))
+
+(defn get-global-config-path
+  []
+  (path/join (state/get-root-dir) "config" "config.edn"))
 
 (defn get-metadata-path
   ([]

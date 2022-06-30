@@ -97,6 +97,7 @@
      :document/mode?                        document-mode?
 
      :config                                {}
+     :config/root-dir                       nil
      :block/component-editing-mode?         false
      :editor/draw-mode?                     false
      :editor/action                         nil
@@ -300,6 +301,10 @@
   (or (:git/current-repo @state)
       (when-not (mobile-util/native-platform?)
         "local")))
+
+(defn get-root-dir
+  []
+  (:config/root-dir @state))
 
 (def default-config
   "Default config for a repo-specific, user config"
