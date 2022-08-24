@@ -4,7 +4,6 @@
             [frontend.state :as state]
             [frontend.util :as util]
             [shadow.resource :as rc]
-            [electron.ipc :as ipc]
             [logseq.graph-parser.util :as gp-util]
             [logseq.graph-parser.config :as gp-config]
             [frontend.mobile.util :as mobile-util]
